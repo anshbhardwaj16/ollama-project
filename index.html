@@ -257,6 +257,12 @@
     outline: none;
     padding-right: 2px;
   }
+  /* The dropdown menu is drawn by the OS — give options an explicit
+     solid surface + text color so they're readable in both themes. */
+  #model-picker select option {
+    background: var(--surface);
+    color: var(--text);
+  }
 
   #topbar-title {
     font-size: 14px;
@@ -1297,7 +1303,7 @@ function loadHighlightJS() {
   s.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js";
   s.onload = () => { swapHljsTheme(document.body.getAttribute("data-theme")); renderThread(); };
   s.onerror = () => {};
-  document.head.appendChild(s);8
+  document.head.appendChild(s);
 }
 function swapHljsTheme(mode) {
   const link = document.getElementById("hljs-theme");
